@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:background="@color/colorPrimary"
+             android:id="@+id/panelSearch"
+             android:layout_height="@dimen/dp_50">
+
+
+    <com.webapp.wooqerassignment.widget.CustomTypeFacedEditText
+            android:layout_width="match_parent"
+            android:background="#00000000"
+            android:textColor="@color/white"
+            app:font="@string/app_font_regular"
+            android:textSize="@dimen/text_14"
+            android:hint="Search News"
+            android:textColorHint="@color/bkgDim"
+            android:layout_marginRight="@dimen/dp_35"
+            android:id="@+id/serachView"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_gravity="center|left"
+            android:layout_height="wrap_content"/>
+
+    <ImageView android:layout_width="@dimen/dp_50"
+               android:layout_height="@dimen/dp_40"
+               android:paddingTop="@dimen/dp_13"
+               android:layout_gravity="right|center"
+               android:id="@+id/btnCloseSearch"
+               android:tint="@color/white"
+               android:paddingBottom="@dimen/dp_13"
+               android:src="@drawable/ic_cancel"/>
+
+    <View android:layout_width="match_parent"
+          android:layout_gravity="bottom"
+          android:layout_marginRight="@dimen/dp_10"
+          android:background="@color/cardview_light_background"
+          android:layout_marginBottom="@dimen/dp_8"
+          android:layout_height="@dimen/dp_07"/>
+
+</FrameLayout>

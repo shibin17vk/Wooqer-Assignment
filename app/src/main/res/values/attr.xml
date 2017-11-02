@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AppFont">
+        <attr name="font" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="DataLayout">
+        <attr name="dataLayout" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="Error">
+        <attr name="message" format="string"/>
+        <attr name="error_icon" format="reference"/>
+    </declare-styleable>
+</resources>

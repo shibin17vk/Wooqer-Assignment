@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Wooqer Task</string>
+    <string name="title_activity_hacker_news_base">HackerNewsBaseActivity</string>
+    <string name="splash_screen_caption">Social News In your Finger Tips !</string>
+    <string name="cache_path">/data/data/com.webapp.wooqerassignment/cache</string>
+</resources>

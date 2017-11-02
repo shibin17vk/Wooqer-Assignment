@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_gravity="center"
+              android:id="@+id/parentBackground"
+              android:background="@color/white"
+              android:gravity="center"
+              android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/swipeToRefresh"
+            android:layout_height="match_parent">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:gravity="center"
+                      android:orientation="vertical">
+
+            <ImageView
+                    android:layout_width="@dimen/dp_120"
+                    android:layout_height="@dimen/dp_80"
+                    android:id="@+id/icon"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/no_items"/>
+
+
+            <com.webapp.wooqerassignment.widget.CustomTypeFacedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font="@string/app_font_regular"
+                    android:textSize="@dimen/text_14"
+                    android:textColor="@color/textColor"
+                    android:text="Please wait while loading"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_gravity="center"
+                    android:paddingRight="@dimen/dp_10"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:id="@+id/tvSubErrorMessage"/>
+
+            <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/avi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AVLoadingIndicatorView"
+                    android:visibility="visible"
+                    android:layout_gravity="center"
+                    app:indicatorName="BallPulseIndicator"
+                    app:indicatorColor="#90a4ae"/>
+
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

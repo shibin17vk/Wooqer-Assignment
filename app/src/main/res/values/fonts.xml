@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_font_semi_bold">"fonts/open sans/open-sans.semibold.ttf"</string>
+    <string name="app_font_regular">"fonts/open sans/open-sans.regular.ttf"</string>
+    <string name="app_font_bold">"fonts/open sans/open-sans.bold.ttf"</string>
+
+</resources>

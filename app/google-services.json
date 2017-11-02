@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "428672832744",
+    "firebase_url": "https://wooqer-assignment.firebaseio.com",
+    "project_id": "wooqer-assignment",
+    "storage_bucket": "wooqer-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428672832744:android:3b95fc41f322e9f4",
+        "android_client_info": {
+          "package_name": "com.webapp.wooqerassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428672832744-v2aftvq5aqimc7b2626c5iltjr82vhqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUN-zWsjYnrq0h_gZeuuchz-lJiwIkvWU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

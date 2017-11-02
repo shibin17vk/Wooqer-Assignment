@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6325</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textGray">#9B9B9B</color>
+    <color name="darGray">#FFAAA6A6</color>
+    <color name="bkgDim">#fafafa</color>
+    <color name="gray">#EEEEEE</color>
+    <color name="textColor">#FF2D3B43</color>
+    <color name="statusBarColor">#FF6425</color>
+    <color name="textColorSecondary">#FF808A84</color>
+
+    <color name="snackbar_message">#ffffff</color>
+    <color name="snackbar_bg">#4a4a4a</color>
+    <color name="white">#ffffff</color>
+</resources>
