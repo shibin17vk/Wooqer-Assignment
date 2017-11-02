@@ -1,42 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.SwipeRefreshLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:background="@color/bkgDim"
-        android:id="@+id/swipeToRefresh"
+        android:id="@+id/parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:id="@+id/parent"
-                  android:orientation="vertical"
-                  android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:background="@color/colorPrimary"
-                android:id="@+id/toolbar"
-                android:elevation="@dimen/dp_4"
-                android:layout_height="wrap_content">
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar"
+            android:elevation="@dimen/dp_4"
+            android:layout_height="wrap_content">
 
-            <LinearLayout android:layout_width="match_parent"
-                          android:orientation="vertical"
-                          android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="wrap_content">
 
-                <include layout="@layout/layout_item_toolbar_view"/>
-                <include layout="@layout/layout_item_toolbar_search"/>
+            <include layout="@layout/layout_item_toolbar_view"/>
+            <include layout="@layout/layout_item_toolbar_search"/>
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </android.support.v7.widget.Toolbar>
+    </android.support.v7.widget.Toolbar>
 
-        <com.webapp.wooqerassignment.widget.DataContainerLayout
-                android:layout_width="match_parent"
-                android:id="@+id/dataLayout"
-                app:dataLayout="@layout/data_layout_toparticles"
-                android:layout_height="match_parent"/>
+    <android.support.v4.widget.SwipeRefreshLayout android:layout_width="match_parent"
+                                                  android:id="@+id/swipeToRefresh"
+                                                  android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
 
-    </LinearLayout>
+            <com.webapp.wooqerassignment.widget.DataContainerLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/dataLayout"
+                    app:dataLayout="@layout/data_layout_toparticles"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
