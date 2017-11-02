@@ -11,6 +11,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -45,7 +46,7 @@ import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 public class HackerNewsListActivity extends HackerNewsBaseActivity implements ActivityControllCallback, LoaderManager
-        .LoaderCallbacks<Cursor> , View.OnClickListener{
+        .LoaderCallbacks<Cursor> , View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, DataContainerLayout.onDataReresheListener {
 
     @BindView(R.id.dataLayout)
     protected DataContainerLayout dataContainerLayout;
@@ -73,6 +74,9 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
 
     @BindView(R.id.panelNonSearch)
     protected FrameLayout panelNonSearch;
+
+    @BindView(R.id.swipeToRefresh)
+    protected SwipeRefreshLayout swipeToRefresh;
 
     private static final int LOADER_ARTICLES        =       1;
     private static final int LOADER_SEARCH_ITEMS    =       2;
@@ -118,6 +122,8 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
     @Override
     protected void onResume() {
         super.onResume();
+        swipeToRefresh.setOnRefreshListener(this);
+        dataContainerLayout.setRefershListener(this);
         mBus.register(this);
         getSupportLoaderManager().restartLoader(LOADER_ARTICLES, null, this);
     }
@@ -262,5 +268,13 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
             });
             mSnackbar.show();
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeToRefresh.setRefreshing(false);
+        mSnackbar = AppUtils.getSnackbar(this,parent,"Syncing", Snackbar.LENGTH_SHORT);
+        mSnackbar.show();
+        mHackerNewsListActivityController.getTopArticlesIdList();
     }
 }
