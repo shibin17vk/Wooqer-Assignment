@@ -28,13 +28,12 @@
                     android:layout_height="wrap_content"/>
 
 
-            <com.webapp.wooqerassignment.widget.CustomTypeFacedTextView
+            <ImageView
                     android:layout_width="wrap_content"
-                    app:font="@string/app_font_semi_bold"
-                    android:text="READ"
                     android:id="@+id/icReadStatus"
                     android:layout_gravity="right|center"
-                    android:textColor="@color/colorPrimary"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/ic_read_status"
                     android:textSize="@dimen/text_10"
                     android:layout_height="wrap_content"/>
 
@@ -51,6 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     app:font="@string/app_font_regular"
+                    android:text="dsajhdhjasbd ad"
                     android:id="@+id/time"
                     android:textColor="@color/textColorSecondary"
                     android:textSize="@dimen/text_12"
@@ -60,6 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:gravity="right"
+                    android:text="200 Scor"
                     android:textColor="@color/textColorSecondary"
                     android:id="@+id/score"
                     android:textSize="@dimen/text_12"

@@ -19,6 +19,10 @@ import java.util.ArrayList;
  * @author shibin
  * @version 1.0
  * @date 31/10/17
+ *
+ * fire base excecutor class to handle all the firebase api request calls and the response will be given
+ * back through @WebServiceCallbackListener
+ *
  */
 
 public class FirebaseWebserviceExcecutor extends WebServiceExecutor {

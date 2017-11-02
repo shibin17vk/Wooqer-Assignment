@@ -10,6 +10,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.webapp.wooqerassignment.HackerNewsBaseActivity;
 import com.webapp.wooqerassignment.R;
@@ -40,6 +41,7 @@ public class HackerNewsDetailsActivity extends HackerNewsBaseActivity {
         setStatusBarColor(ContextCompat.getColor(this,R.color.statusBarColor));
         ButterKnife.bind(this);
         getBundleInfo();
+        dataLayout.showData();
         initWebView();
     }
 
@@ -89,7 +91,8 @@ public class HackerNewsDetailsActivity extends HackerNewsBaseActivity {
         public void onReceivedError(final WebView view, final WebResourceRequest request,
                 final WebResourceError error) {
             super.onReceivedError(view, request, error);
-            //dataLayout.onError("This article can not be loaded at this moment !");
+            Toast.makeText(getApplicationContext(), "This article can not be loaded at this moment !", Toast
+                    .LENGTH_SHORT).show();
 
         }
     }

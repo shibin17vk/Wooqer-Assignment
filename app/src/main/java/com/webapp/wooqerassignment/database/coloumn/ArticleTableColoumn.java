@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.database.coloumn;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Coloumn declarations for Table - Article
+ *
  */
 
 public class ArticleTableColoumn {

@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.model;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Pojo for storing artilce info
+ *
  */
 
 public class Article {

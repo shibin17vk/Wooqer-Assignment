@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.exception;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Custom excpetion handle defined buggy scenarios
+ *
  */
 
 public class AppException extends Exception{

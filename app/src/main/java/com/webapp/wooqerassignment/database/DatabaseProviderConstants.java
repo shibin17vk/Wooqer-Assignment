@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.database;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Provider declaration constants
+ *
  */
 
 public class DatabaseProviderConstants {

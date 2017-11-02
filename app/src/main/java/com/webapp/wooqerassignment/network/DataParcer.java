@@ -11,6 +11,9 @@ import java.util.Map;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * TO parse the webservice responses.
+ *
  */
 
 public class DataParcer {

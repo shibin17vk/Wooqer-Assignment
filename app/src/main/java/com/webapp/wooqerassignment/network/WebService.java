@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.network;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * service class to provide the api service definitions
+ *
  */
 
 public class WebService {

@@ -16,6 +16,9 @@ import com.webapp.wooqerassignment.database.tables.TableArticle;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Provider class to difine the db authority
+ *
  */
 
 public class AppDatabaseProvider extends ContentProvider {

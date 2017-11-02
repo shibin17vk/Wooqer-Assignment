@@ -59,4 +59,42 @@ public class AppUtils {
         return mSnackbar;
     }
 
+    /**
+     * Get time ago that milliseconds date occurred
+     *
+     * @param millis
+     * @return time string
+     */
+    public synchronized static String timeAgo(final long millis, Context context) {
+        return time(System.currentTimeMillis() - millis, context);
+    }
+
+
+    public synchronized static String time(Long distanceMillis, Context context) {
+
+        final double seconds = distanceMillis / 1000;
+        final double minutes = seconds / 60;
+        final double hours = minutes / 60;
+        final double days = hours / 24;
+        final double years = days / 365;
+
+        final String time;
+        if (seconds < 45) {
+            time = context.getString(R.string.time_seconds);
+        } else if (seconds < 90 || minutes < 45) {
+            time = context.getResources().getQuantityString(R.plurals.time_minute, minutes < 2 ? 1 : 2, Math.round
+                    (minutes));
+        } else if (minutes < 90 || hours < 24) {
+            time = context.getResources().getQuantityString(R.plurals.time_hour, hours < 2 ? 1 : 2, Math.round(hours));
+        } else if (hours < 48 || days < 30) {
+            time = context.getResources().getQuantityString(R.plurals.time_day, days < 2 ? 1 : 2, Math.round(days));
+        } else if (days < 60 || days < 365) {
+            time = context.getResources().getQuantityString(R.plurals.time_month, (days / 30) < 2 ? 1 : 2, Math.round(days / 30));
+        } else {
+            time = context.getResources().getQuantityString(R.plurals.time_year, years < 2 ? 1 : 2, Math.round(years));
+        }
+
+        return time + " " + context.getString(R.string.time_ago);
+
+    }
 }

@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textGray">#9B9B9B</color>
     <color name="darGray">#FFAAA6A6</color>
+    <color name="shadowGray">#D4D4D4</color>
     <color name="bkgDim">#fafafa</color>
     <color name="gray">#EEEEEE</color>
     <color name="textColor">#FF2D3B43</color>

@@ -4,6 +4,9 @@ package com.webapp.wooqerassignment.constants;
  * @author shibin
  * @version 1.0
  * @date 31/10/17
+ *
+ * class to define all the app level cotsnats
+ *
  */
 
 public class AppConstants {
@@ -17,6 +20,9 @@ public class AppConstants {
     public static final String TAG_ID          =    "id";
     public static final String TAG_SEARCH_KEY  =    "search_key";
 
+    /**
+     * Webservice service response tag names
+     */
     public static class ArticleRespTag {
 
         public static final String TAG_BY             = "by";
@@ -28,8 +34,10 @@ public class AppConstants {
         public static final String TAG_URL            = "url";
     }
 
+    /**
+     * Data base flag for read status states
+     */
     public static class ReadStatus {
-
         public static final int READ           =       1;
         public static final int UN_READ        =       0;
     }

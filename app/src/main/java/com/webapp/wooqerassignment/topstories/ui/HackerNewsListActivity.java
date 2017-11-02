@@ -83,8 +83,10 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
     private int currentArticlePageNumber            =       AppConstants.PAGE_NO_ZERRO;
     private Bus mBus                                =       null;
     private Snackbar mSnackbar                      =       null;
+    private int toolBarMode;
 
     private LinearLayoutManager mLinearLayoutManager                            =   null;
+    private ConnectionState mConnectionState                                    =   null;
     private HackerNewsListActivityController mHackerNewsListActivityController  =   null;
     private ProgressDialog mProgressDialog                                      =   null;
     private ArticleListRecyclerListAdapter mArticleListRecyclerListAdapter      =   null;
@@ -141,10 +143,13 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
     @Override
     public Loader<Cursor> onCreateLoader(final int id, final Bundle args) {
         if( id == LOADER_ARTICLES) {
+            mArticleListRecyclerListAdapter.setItemHighlightRequired(false,"");
             return new CursorLoader(this, ProviderUri.URI_ARTICLES,null,null,null, ArticleTableColoumn.SCORE+" DESC");
+
         } else if(id == LOADER_SEARCH_ITEMS) {
             String searchKey = args.getString(AppConstants.TAG_SEARCH_KEY);
             String selection = ArticleTableColoumn.TITLE +" like '%"+searchKey+"%'";
+            mArticleListRecyclerListAdapter.setItemHighlightRequired(true,searchKey);
             return new CursorLoader(this, ProviderUri.URI_ARTICLES,null,selection,null, ArticleTableColoumn.SCORE+" DESC");
         }
         return null;
@@ -152,9 +157,10 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
 
     @Override
     public void onLoadFinished(final Loader<Cursor> loader, final Cursor data) {
-        if(loader.getId() == LOADER_ARTICLES) {
+        if(loader.getId() == LOADER_ARTICLES && toolBarMode == TOOLBAR_MODE_VIEW) {
             mArticleListRecyclerListAdapter.swapCursor(data);
-        } else if(loader.getId() == LOADER_SEARCH_ITEMS) {
+
+        } else if(loader.getId() == LOADER_SEARCH_ITEMS && toolBarMode == TOOLBAR_MODE_SEARCH) {
             mArticleListRecyclerListAdapter.swapCursor(data);
         }
     }
@@ -204,14 +210,17 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
     }
 
     private void setToolBarMode(int mode) {
+        toolBarMode = mode;
         if(mode == TOOLBAR_MODE_SEARCH) {
             panelNonSearch.setVisibility(View.GONE);
             panelSearch.setVisibility(View.VISIBLE);
+
         } else if(mode == TOOLBAR_MODE_VIEW){
             serachView.setText("");
             serachView.requestFocus();
             panelNonSearch.setVisibility(View.VISIBLE);
             panelSearch.setVisibility(View.GONE);
+            getSupportLoaderManager().restartLoader(LOADER_ARTICLES, null, this);
         }
     }
 
@@ -220,7 +229,6 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                int firstVisibleItem = mLinearLayoutManager.findFirstCompletelyVisibleItemPosition();
                 int totalItemCount = mLinearLayoutManager.getItemCount();
                 int lastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
                 int visibleThreshold = 4;
@@ -235,6 +243,10 @@ public class HackerNewsListActivity extends HackerNewsBaseActivity implements Ac
 
     @Subscribe
     public void onNetworkStateChange(ConnectionState connectionState) {
+        if(mConnectionState != null && mConnectionState.getConnectionState() == connectionState.getConnectionState()) {
+            return;
+        }
+        mConnectionState = connectionState;
         if(connectionState.getConnectionState() == ConnectionState.CONNECTED) {
             mSnackbar = AppUtils.getSnackbar(this,parent,"Connected", Snackbar.LENGTH_SHORT);
             mSnackbar.show();

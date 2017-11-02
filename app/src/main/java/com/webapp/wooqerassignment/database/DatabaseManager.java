@@ -11,6 +11,10 @@ import com.webapp.wooqerassignment.model.Article;
  * @author shibin
  * @version 1.0
  * @date 01/11/17
+ *
+ * Database operation handler
+ * This layer helps to communicate with data base layer
+ *
  */
 
 public class DatabaseManager {
@@ -36,6 +40,15 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @param context
+     * @return
+     *
+     * if the article is already present then ingmring and inserting as new entry other wise
+     *
+     */
     public boolean updateReadStatus(long id, Context context) {
         ContentValues values = new ContentValues();
         values.put(ArticleTableColoumn.READ_STATUS, AppConstants.ReadStatus.READ);
